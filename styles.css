@@ -1,9 +1,11 @@
 body {
-  background-color: powderblue;
+  background-color: steelblue;
 }
 h1 {
   color: blue;
+  font-family: times;
 }
 p {
   color: red;
+  font-family: times;
 }
