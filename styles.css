@@ -1,8 +1,8 @@
 body {
-  background-image: url("http://fotos.piqs.de/e/2/d/e/a/67044062864102242fd86f659a88b85d.jpg");
+  background-image: url("background.jpg");
   background-repeat: no-repeat;
   background-attachment: fixed;
-  background-size: 100%;
+  background-size: cover;
   margin-top: 5%;
   margin-bottom: 5%;
   margin-right: 20%;
