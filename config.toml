@@ -3,3 +3,5 @@ languageCode = "en-us"
 title = "Stutzland"
 
 theme = "hugo-book"
+
+BookMenuBundle: /menu
