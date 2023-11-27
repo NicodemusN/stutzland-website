@@ -3,6 +3,6 @@ headless = true
 +++
 
 - [Federal documentation]({{< relref "/docs/" >}})
-  - [Laws]({{< relref "/docs/laws" >}})
-  - [Directives]({{< relref "/docs/directives" >}})
-  - [Government proposals]({{< relref "/docs/govproposals" >}})
+  - [Laws]({{< relref "/docs/laws.md" >}})
+  - [Directives]({{< relref "/docs/directives.md" >}})
+  - [Government proposals]({{< relref "/docs/govproposals.md" >}})
