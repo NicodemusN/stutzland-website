@@ -2,4 +2,4 @@ baseURL = "http://example.org/"
 languageCode = "en-us"
 title = "Stutzland"
 
-theme = "lugo"
+theme = "hugo-book"
