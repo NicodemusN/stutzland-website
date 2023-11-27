@@ -2,7 +2,7 @@
 headless = true
 +++
 
-- [Federal documentation]({{< relref "/docs/" >}})
-  - [Laws]({{< relref "/docs/laws.md" >}})
-  - [Directives]({{< relref "/docs/directives.md" >}})
-  - [Government proposals]({{< relref "/docs/govproposals.md" >}})
+- [Federal documentation]({{< relref "/home/runner/work/stutzland-website/stutzland-website/content/docs/" >}})
+  - [Laws]({{< relref "/home/runner/work/stutzland-website/stutzland-website/content/docs/laws.md" >}})
+  - [Directives]({{< relref "/home/runner/work/stutzland-website/stutzland-website/content/docs/directives.md" >}})
+  - [Government proposals]({{< relref "/home/runner/work/stutzland-website/stutzland-website/content/docs/govproposals.md" >}})
