@@ -38,7 +38,7 @@
 }
 
 /* When the screen is less than 600px wide, stack the links and the search field vertically instead of horizontally */
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 1000px) {
   .topnav a, .topnav input[type=text] {
     float: none;
     display: block;
