@@ -164,3 +164,20 @@ p {
 #searchResults li {
   margin-bottom: 5px;
 }
+
+.law {
+  font-family: 'Times New Roman', Times, serif;
+  &h2 {
+    border-left-width: 10px;
+    border-left-style: solid;
+    border-left-color: #afe0a8;
+  }
+  &h3 {
+    margin-left: 10 px;
+    font-weight: bold;
+  }
+  &p {
+    margin-left: 10px;
+    font-family: Arial, sans-serif;
+  }
+}
