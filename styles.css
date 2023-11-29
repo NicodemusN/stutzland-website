@@ -143,3 +143,24 @@ p {
   font-family: sans;
   font-size: 18;
 }
+
+.search-container {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+#searchInput {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+#searchResults {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#searchResults li {
+  margin-bottom: 5px;
+}
