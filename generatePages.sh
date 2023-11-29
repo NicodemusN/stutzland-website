@@ -1,12 +1,17 @@
 #!/bin/bash
 
-echo "[" > pages.json
+# Find all HTML files in the laws directory
+files=$(find laws -type f -name "*.html")
 
-for file in *.html; do
-  title=$(basename "$file" .html)
-  url="$file"
-
-  echo "  {\"title\": \"$title\", \"url\": \"$url\"}," >> pages.json
+# Create an array of JSON objects
+json_array="["
+for file in $files; do
+  title=$(grep -oP '<title>\K(.*)(?=<\/title>)' "$file" | head -n 1)
+  json_array+="{\"title\": \"$title\", \"url\": \"$file\"},"
 done
 
-echo "]" >> pages.json
+# Remove the trailing comma and close the array
+json_array="${json_array%,}]"
+
+# Write the formatted JSON to pages.json
+echo "$json_array" | jq '.' > pages.json

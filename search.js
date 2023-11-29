@@ -1,66 +1,60 @@
-document.addEventListener("DOMContentLoaded", function () {
-  const searchInput = document.getElementById("searchInput");
-  const searchResults = document.getElementById("searchResults");
+// Function to fetch pages from pages.json
+async function fetchPages(query) {
+  try {
+    // Fetch the pages.json content
+    const response = await fetch("pages.json");
+    const pages = await response.json();
 
-  searchInput.addEventListener("input", function () {
-    const query = searchInput.value.toLowerCase();
-    searchResults.innerHTML = "";
+    // Filter pages based on the query
+    const filteredPages = pages.filter(page => page.title.toLowerCase().includes(query.toLowerCase()));
 
-    if (query.length > 0) {
-      fetchPages(query);
-    }
-  });
-
-  async function fetchPages(query) {
-    try {
-      // Fetch dynamically generated pages.json
-      const response = await fetch("pages.json");
-      const pages = await response.json();
-  
-      // Filter pages based on the query
-      const filteredPages = pages.filter((page) =>
-        page.title.toLowerCase().includes(query.toLowerCase())
-      );
-  
-      // Display search results
-      searchResults.innerHTML = ""; // Clear previous results
-  
-      if (filteredPages.length === 0) {
-        const li = document.createElement("li");
-        li.textContent = "No results found.";
-        searchResults.appendChild(li);
-      } else {
-        for (const page of filteredPages) {
-          const li = document.createElement("li");
-          const link = document.createElement("a");
-  
-          // Use the title found inside the HTML file, or fallback to the filename
-          const pageTitle = await getTitleFromHtml(page.url);
-          link.textContent = pageTitle || page.title;
-          link.href = page.url;
-  
-          li.appendChild(link);
-          searchResults.appendChild(li);
-        }
-      }
-    } catch (error) {
-      console.error("Error fetching or processing pages:", error);
-    }
+    // Return the filtered pages
+    return filteredPages;
+  } catch (error) {
+    console.error("Error fetching or processing pages:", error);
+    return [];
   }
-  
-  // Function to extract the title from an HTML file
-  async function getTitleFromHtml(url) {
-    try {
-      // Fetch the HTML content
-      const response = await fetch(url);
-      const html = await response.text();
-  
-      // Use a regular expression to find the title inside the <title> tag
-      const match = /<title>(.*?)<\/title>/i.exec(html);
-      return match ? match[1].trim() : null;
-    } catch (error) {
-      console.error("Error fetching HTML content:", error);
-      return null;
-    }
-  }  
-});
+}
+
+// Function to handle search input
+async function handleSearchInput() {
+  // Get the search input value
+  const query = document.getElementById("searchInput").value;
+
+  // Fetch and display the search results
+  const results = await fetchPages(query);
+  displayResults(results);
+}
+
+// Function to display search results
+function displayResults(results) {
+  // Get the search results container
+  const resultsContainer = document.getElementById("searchResults");
+
+  // Clear previous results
+  resultsContainer.innerHTML = "";
+
+  // Check if the search input is empty
+  const searchInput = document.getElementById("searchInput").value.trim();
+  if (searchInput === "") {
+    // If empty, do not display any results
+    return;
+  }
+
+  // Display new results
+  results.forEach(result => {
+    // Create a list item with the title and URL
+    const listItem = document.createElement("li");
+    
+    // Use the title from JSON if available, otherwise use the URL
+    const displayTitle = result.title || result.url;
+    
+    listItem.innerHTML = `<a href="${result.url}">${displayTitle}</a>`;
+    
+    // Append the list item to the results container
+    resultsContainer.appendChild(listItem);
+  });
+}
+
+// Attach an event listener to the search input
+document.getElementById("searchInput").addEventListener("input", handleSearchInput);
