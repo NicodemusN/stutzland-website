@@ -57,18 +57,15 @@ body {
 
 .main-content {
     order: 1;
-    flex: 0 0 700px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
     min-width: 700px;
     max-width: 700px;
     margin-right: 100px;
     padding-right: 10px;
     box-sizing: border-box;
     z-index: 0;
-}
-
-.flexible-item {
-    flex: 1;
-    z-index: -1;
 }
 
 .sidebar {
