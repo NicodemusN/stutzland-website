@@ -81,6 +81,7 @@ body {
     min-width: 300px;
     position: sticky;
     top: 110px;
+    bottom: 111px;
     min-height: 100%;
     height: 100%;
     z-index: 1;
