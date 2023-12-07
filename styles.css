@@ -128,6 +128,16 @@ a {
     text-decoration: none;
 }
 
+.gop {
+    color: #0d7000;
+    text-decoration: none;
+    margin-bottom: 3px !important;
+}
+
+.gop+p {
+    margin-top: 0px;
+}
+
 a:hover {
     text-decoration-line: underline;
 }
@@ -215,4 +225,28 @@ p {
 
 .law li ul {
     font-family: Arial, sans-serif;
+}
+
+hr {
+    display: block;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: 0;
+    margin-right: 10px;
+    border-style: inset;
+    border-width: 2px;
+}
+
+.old-sec-container {
+    text-align: left;
+    border: 1px solid #ccc;
+    padding: 5px;
+    background-color: #eee;
+    margin-left: 20px;
+}
+
+.hidden-sec {
+    display: none;
+    margin-top: 10px;
+    margin-left: 20px;
 }
